@@ -6,9 +6,9 @@ public class SimpleMoverImpl implements Mover {
     public Item makeMove() {
         int rnd = (int) (Math.random() * 3);
         switch (rnd) {
-            case 0: return new ItemRock();
-            case 1: return new ItemScissors();
-            case 2: return new ItemPaper();
+            case 0: return Item.ROCK;
+            case 1: return Item.SCISSORS;
+            case 2: return Item.PAPER;
         }
         return null;
     }

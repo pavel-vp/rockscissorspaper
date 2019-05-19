@@ -14,9 +14,9 @@ public class BaseItemTest {
 
     @Before
     public void setUp() {
-        this.rock = new ItemRock();
-        this.scissors = new ItemScissors();
-        this.paper = new ItemPaper();
+        this.rock = Item.ROCK;
+        this.scissors = Item.SCISSORS;
+        this.paper = Item.PAPER;
     }
 
     @Test

@@ -1,7 +1,6 @@
 package com.acme.rsp.game.rsp;
 
 import com.acme.rsp.model.Item;
-import com.acme.rsp.model.ItemType;
 import com.acme.rsp.model.Result;
 import com.acme.rsp.service.ItemFabric;
 import com.acme.rsp.service.Mover;
@@ -56,8 +55,8 @@ public class SimpleRockScissorsPaperGame  {
                 Result result  = statistic.checkAndSaveStat(itemHuman, itemComputer);
 
                 // выводим результат текущий
-                System.out.println("Your move - " + itemHuman.getDescr());
-                System.out.println("Computer move - " + itemComputer.getDescr());
+                System.out.println("Your move - " + itemHuman.getDesc());
+                System.out.println("Computer move - " + itemComputer.getDesc());
                 System.out.println("Your result - " + result.getDesc());
             }
             // накопленный
