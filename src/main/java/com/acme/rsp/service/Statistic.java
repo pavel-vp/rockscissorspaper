@@ -11,11 +11,6 @@ import java.util.Queue;
 public class Statistic {
 
     private static final int LIMIT = 20;
-    // Статистика преыдущих ходов (соперника или своих)
-    // служит просто для хранения ходов.
-    // Используется для :
-    // - берем последние 20 ходов, вычисляем сколько чего было выбрано (в мапе)
-    // - получается вероятности - наименьшее число - предполагаем что оно и будет выбрано,
 
     private Queue<Item> statData = new LinkedList<>();
 
@@ -49,7 +44,7 @@ public class Statistic {
     }
 
     public Map<Item, Integer> buildMapStat() {
-        Map<Item, Integer> map = new HashMap<Item, Integer>();
+        Map<Item, Integer> map = new HashMap<>();
         for (Item item: statData) {
             Integer count = map.get(item);
             if (count == null) {
