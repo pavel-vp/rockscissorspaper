@@ -2,10 +2,7 @@ package com.acme.rsp.game.rsp;
 
 import com.acme.rsp.model.Item;
 import com.acme.rsp.model.Result;
-import com.acme.rsp.service.ItemFabric;
-import com.acme.rsp.service.Mover;
-import com.acme.rsp.service.SimpleMoverImpl;
-import com.acme.rsp.service.Statistic;
+import com.acme.rsp.service.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,7 +18,7 @@ public class SimpleRockScissorsPaperGame  {
     public void start() {
         state = 0;
         final BufferedReader buffer=new BufferedReader(new InputStreamReader(System.in));
-        Mover mover = new SimpleMoverImpl();
+        Mover mover = new Algo1MoverImpl();
         Statistic statistic = new Statistic();
         while (state == 0) {
             System.out.println("Please enter move:");
@@ -45,7 +42,7 @@ public class SimpleRockScissorsPaperGame  {
                     System.out.println("error input");
                     continue;
                 }
-                Item itemComputer = mover.makeMove();
+                Item itemComputer = mover.makeMove(statistic);
                 Result result  = statistic.checkAndSaveStat(itemHuman, itemComputer);
 
                 System.out.println("Your move - " + itemHuman.getDesc());

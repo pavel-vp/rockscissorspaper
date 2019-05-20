@@ -16,7 +16,7 @@ public class MoverTest {
 
     @Test
     public void mover_simple_test() {
-        System.out.println(simpleMover.makeMove());
+        System.out.println(simpleMover.makeMove(null));
     }
 
 }

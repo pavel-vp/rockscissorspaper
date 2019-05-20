@@ -3,16 +3,38 @@ package com.acme.rsp.service;
 import com.acme.rsp.model.Item;
 import com.acme.rsp.model.Result;
 
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 import java.util.Queue;
 
 public class Statistic {
 
     private static final int LIMIT = 20;
 
-    private Queue<Item> statData = new LinkedList<>();
+    public static class StatElement {
+        private Item itemHuman;
+        private Item itemComputer;
+        private Result result;
+
+        public StatElement(Item itemHuman, Item itemComputer, Result result) {
+            this.itemHuman = itemHuman;
+            this.itemComputer = itemComputer;
+            this.result = result;
+        }
+
+        public Item getItemHuman() {
+            return itemHuman;
+        }
+
+        public Item getItemComputer() {
+            return itemComputer;
+        }
+
+        public Result getResult() {
+            return result;
+        }
+    }
+
+    private Queue<StatElement> statData = new LinkedList<>();
 
     public int getWinsHuman() {
         return winsHuman;
@@ -36,23 +58,15 @@ public class Statistic {
                 break;
 
         }
-        statData.add(itemHuman);
+        statData.add(new StatElement(itemHuman, itemComputer, result));
         while (statData.size() > LIMIT) {
             statData.remove();
         }
         return result;
     }
 
-    public Map<Item, Integer> buildMapStat() {
-        Map<Item, Integer> map = new HashMap<>();
-        for (Item item: statData) {
-            Integer count = map.get(item);
-            if (count == null) {
-                count = 0;
-            }
-            map.put(item, count + 1);
-        }
-        return map;
+    public Queue<StatElement> getStatData() {
+        return statData;
     }
 
 }
