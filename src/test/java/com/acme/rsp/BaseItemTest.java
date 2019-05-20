@@ -1,6 +1,7 @@
 package com.acme.rsp;
 
 import com.acme.rsp.model.*;
+import com.acme.rsp.service.ItemFabric;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -36,6 +37,17 @@ public class BaseItemTest {
         assertEquals(paper.compareToOther(rock), Result.WIN);
         assertEquals(paper.compareToOther(scissors), Result.LOSE);
         assertEquals(paper.compareToOther(paper), Result.DRAW);
+    }
+
+    @Test
+    public void item_byconst_test() {
+        Item item1 = ItemFabric.getItemByConstant("1");
+        Item item2 = ItemFabric.getItemByConstant("2");
+        Item item3 = ItemFabric.getItemByConstant("3");
+
+        assertEquals(item1, Item.ROCK);
+        assertEquals(item2, Item.SCISSORS);
+        assertEquals(item3, Item.PAPER);
     }
 
 }

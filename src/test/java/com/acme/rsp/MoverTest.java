@@ -1,7 +1,6 @@
 package com.acme.rsp;
 
 import com.acme.rsp.service.Mover;
-import com.acme.rsp.service.SimpleMoverImpl;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,7 +10,6 @@ public class MoverTest {
 
     @Before
     public void setUp() {
-        simpleMover = new SimpleMoverImpl();
     }
 
     @Test

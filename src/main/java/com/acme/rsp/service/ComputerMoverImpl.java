@@ -3,7 +3,8 @@ package com.acme.rsp.service;
 import com.acme.rsp.model.Item;
 import com.acme.rsp.model.Result;
 
-public class Algo1MoverImpl implements Mover {
+public class ComputerMoverImpl implements Mover {
+
     @Override
     public Item makeMove(Statistic statistic) {
         Statistic.StatElement statElement = statistic.getStatData().peek();
@@ -31,4 +32,5 @@ public class Algo1MoverImpl implements Mover {
         }
         return ItemFabric.getItemByConstant(String.valueOf((int)(Math.random() * 3 + 1)));
     }
+
 }
