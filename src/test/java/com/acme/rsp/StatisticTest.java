@@ -1,6 +1,7 @@
 package com.acme.rsp;
 
 import com.acme.rsp.model.Item;
+import com.acme.rsp.model.MoveRecord;
 import com.acme.rsp.model.Result;
 import com.acme.rsp.service.Statistic;
 import org.junit.Before;
@@ -20,14 +21,14 @@ public class StatisticTest {
 
     @Test
     public void add_stat_elems_test() {
-        Result result =  statistic.checkAndSaveStat(Item.ROCK, Item.PAPER);
-        assertEquals(result, Result.LOSE);
-        result =  statistic.checkAndSaveStat(Item.PAPER, Item.PAPER);
-        assertEquals(result, Result.DRAW);
-        result =  statistic.checkAndSaveStat(Item.SCISSORS, Item.PAPER);
-        assertEquals(result, Result.WIN);
+        MoveRecord moveRecord =  statistic.checkAndSaveStat(Item.ROCK, Item.PAPER);
+        assertEquals(moveRecord.getResult(), Result.LOSE);
+        moveRecord =  statistic.checkAndSaveStat(Item.PAPER, Item.PAPER);
+        assertEquals(moveRecord.getResult(), Result.DRAW);
+        moveRecord =  statistic.checkAndSaveStat(Item.SCISSORS, Item.PAPER);
+        assertEquals(moveRecord.getResult(), Result.WIN);
 
-        Queue<Statistic.StatElement> queue = statistic.getStatData();
+        Queue<MoveRecord> queue = statistic.getStatData();
         assertEquals(queue.size(), 3);
         assertEquals(queue.peek().getItemHuman(), Item.ROCK);
     }

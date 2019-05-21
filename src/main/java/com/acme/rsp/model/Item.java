@@ -1,5 +1,9 @@
 package com.acme.rsp.model;
 
+/**
+ * Basic class, represents a chosen Item at the move.
+ * Implementing an interface ItemFunction, with method compateToOther with each Item.
+ */
 public enum Item implements ItemFunction {
 
     ROCK {
